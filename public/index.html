@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Chat</title>
+</head>
+
+<body class="chat">
+
+  <div class="chat__sidebar">
+    <div id="room"></div>
+    <div id="users" class="users"></div>
+  </div>
+
+  <div class="chat__main">
+    <ol id="messages" class="chat__messages"></ol>
+
+    <div class="chat__footer">
+      <div id="user-name" class="user-name"></div>
+      <form id="message-form">
+        <input name="message" type="text" placeholder="Message" autocomplete="off" autofocus/>
+        <button>Send</button>
+      </form>
+    </div>
+
+  </div>
+
+  <script id="message-template" type="text/template">
+    <li class="message">
+        <div class="message__wraper lightblue">
+      <div class="message__title">
+        <h4>{{from}}</h4>
+        <span>{{createdAt}}</span>
+      </div>
+      <div class="message_body">
+        <p>{{text}}</p>
+      </div>
+      <div>
+    </li>
+  </script>
+
+  <script id="user-message-template" type="text/template">
+    <li class="user-message">
+      <div class="message__wraper bisque right">
+      <div class="message__title right">
+        <h4>{{from}}</h4>
+        <span>{{createdAt}}</span>
+      </div>
+      <div class="message_body right">
+         <p>{{text}}</p>
+      </div>
+    </div>
+    </li>
+  </script>
+
+  <script id="admin-message-template" type="text/template">
+    <li class="admin-message">
+      <div class="message__wraper lightgrey">
+      <div class="message_body">
+         <p class="small-text">{{text}}</p>
+      </div>
+    </div>
+    </li>
+  </script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/libs/jquery.min.js"></script>
+  <script src="/js/libs/moment.js"></script>
+  <script src="/js/libs/randomName.js"></script>
+  <script src="/js/libs/mustache.js"></script>
+  <script src="/js/libs/deparam.js"></script>
+  <script src="/js/chat.js"></script>
+</body>
+
+</html>
